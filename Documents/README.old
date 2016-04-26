@@ -1,0 +1,54 @@
+
+# $Id: README.old,v 1.2 2005/07/26 04:14:08 copal Exp $
+
+# 04/11/2003
+
+- the code is currently very broken and full of mess
+- IWMClientDescriptor (which is currently non-functional) will be changing
+in order to conform to EWMH
+- don't count on this code.  it'll start, but you won't be able to pull up
+a client.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         Interface Window Manager
+                 Ian Mondragon - < the.copal atgmaildotcom >
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Interface window manager was designed with the following goals in mind:
+
+  1. Written in Objective-C, using the GNUstep (http://www.gnustep.org)
+     libraries.
+
+  2. Provide strictly minimal functionality, with all additional features 
+     available via bundles (called IWMComponents).
+
+  3. Utilize the GNUstep defaults database for user settings, such as
+     mouse button configuration, key bindings, and initial color settings.
+
+  4. Be optimized for use in a strictly GNUstep environment.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                             Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  - Install GNUstep (www.gnustep.org)
+    
+  - Make sure you have libwraster installed
+
+  - Compile Interface by running "make install" - this will, by default,
+    install the executable in $GNUSTEP_USER_ROOT as a tool named
+    "interfacewm"
+
+    (NOTE: if you are running a *BSD system, you will most likely need to
+     run "gmake install")
+
+  - Place the Defaults.themed directory in the following directory:
+  
+                ~/GNUstep/Library/InterfaceWM/Themes/
+
+  - modify your ~/.xinitrc to point to interfacewm:
+
+                opentool interfacewm
+
+
+

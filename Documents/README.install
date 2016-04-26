@@ -1,0 +1,189 @@
+
+INSTALL
+*******
+
+  This is version 0.2.4 of Interface WM (IWM)
+
+----------------------------------------------------------------------------
+
+
+Installing IWM
+==============
+
+  Requirements
+  ------------
+
+  To successfully compile and install IWM, you will need to have GNUstep
+  installed on your system, that is
+
+    * GNUstep Core
+      - gnustep-make
+      - gnustep-base
+      - gnustep-gui
+      - gnustep-back
+
+  GNUstep has additional dependencies. Read the appropriate installation
+  documentation ( GNUstep-HOWTO ) for further details or visit
+
+     < http://www.gnustep.org/ >
+
+  Additionally, make sure you have libwraster installed.
+  libwraster is part of Window Maker. Note, that GNUstep also depends on it.
+
+
+
+  Configure options
+  -----------------
+
+  The following assumes that you already changed to the top source directory
+  ( eg. $HOME/source/interfacewm-0.2.4/ )
+
+    X11 R6
+    ------
+    Most modern UNICES keep X11 in /usr/X11R6. However, you may need to
+    point to the correct location where X11 is installed. This is done in
+    GNUmakefile.local in the top level directory. Check for
+
+      ADDITIONAL_INCLUDE_DIRS += -I/usr/X11R6/include
+      ADDITIONAL_LDFLAGS      += -lX11 -lXext
+      ADDITIONAL_LIB_DIRS     += -L/usr/X11R6/lib
+
+    and point to the correct location ( eg. /usr/openwin ) and libraries.
+
+
+    Installation location
+    ---------------------
+    By default, IWM is installed in $GNUSTEP_USER_ROOT. To install to a
+    different location, you need to edit GNUmakefile in the top level
+    directory. Check for
+
+      GNUSTEP_INSTALLATION_DIR = $(GNUSTEP_USER_ROOT)
+
+    and change it to the desired location ( eg. GNUSTEP_SYSTEM_ROOT )
+
+    NOTE:
+      Make sure that you have write permissions to install into the new
+      location.
+
+    ALSO NOTE:
+      The libraries, IWM depends upon during link time, as well as the
+      theme(s) will also be installed beneath this directory.
+
+
+
+  Updating IWM
+  ------------
+
+  If you are updating IWM from a previous version, make sure there is only
+  one version installed on your system.
+
+  Ideally, that previous version is installed in $(GNUSTEP_USER_ROOT) or the
+  same location you intend to install the current version to.
+
+  Otherwise, GNUstep may not be able to find the correct header files.
+
+
+
+  Compiling IWM
+  -------------
+
+  The following assumes that you already changed to the top source directory
+  ( eg. $HOME/source/interfacewm-0.2.4/ )
+
+  Typically, there is no need for configuration. On your shell type:
+
+    $ make
+    $ make install
+    $ make distclean
+
+  ( The $ denotes your SHELL prompt. )
+  This will go through each sub-directory successibly, to create all files,
+  install them to their proper location and finally clean up.
+
+    NOTE
+      You need GNU make ( called 'gmake' or 'gnumake' on some systems )
+
+  By default, the executable is installed in $GNUSTEP_USER_ROOT as a tool
+  named "interfacewm".
+
+
+
+  Compiling a DEBUG version of IWM
+  --------------------------------
+
+  In case you want to install a DEBUG version, you need to take a look at
+  GNUmakefile.local in the top level directory and search for
+
+    ADDITIONAL_CPPFLAGS += -UDEBUG
+
+  To turn it ON, change -U to -D.
+
+  Be prepared for floods, pestilence, hordes of locusts and all sorts of
+  hell to break loose, if you use IWM with DEBUG turned on...
+  You've been warned.
+
+  To actually USE the 'debug features' you will have to start IWM with
+  corresponding options. Those are as follows:
+
+    $ opentool interfacewm --GNU-Debug=error
+    $ opentool interfacewm --GNU-Debug=warn
+    $ opentool interfacewm --GNU-Debug=note
+    $ opentool interfacewm --GNU-Debug=debug
+    $ opentool interfacewm --GNU-Debug=trace
+
+  To use all options, use
+
+    $ opentool interfacewm --GNU-Debug=all
+
+  Of course, you can combine any of the options:
+
+    $ opentool interfacewm --GNU-Debug=debug --GNU-Debug=trace
+
+  Finally, you can use
+
+    $ opentool interfacewm --GNU-Debug=verbose
+
+  to see all the interesting stuff, without the method/function trace.
+
+
+  Troubleshooting
+  ---------------
+
+  < Description forthcoming >
+
+
+
+Miscellaneous
+=============
+
+  The directory misc/ contains
+
+  - a simple default theme, Default.iwmtheme.  place this package in the 
+    following directory:
+
+        ~/GNUstep/Library/InterfaceWM/Themes/
+
+    any other themes you create/download should be placed in this directory.
+  
+  - a simple shell script, named "iwm" that can be placed into any directory
+    referenced by your $PATH variable.
+    The script is a simple wrapper for "interfacewm", so IWM can be started
+    from within a more complex xinitrc or xsession file.
+
+  - a sample complex xinitrc file. Copy the file into your $HOME, rename it
+    to $HOME/.xinitrc and make it executable
+
+      $ chmod 700 ~/.xinitrc
+
+    If you use xdm(1) to login to your X11, create a symlink from ~/.xinitrc
+    to ~/.xsession
+
+      $ ln -s ~/.xinitrc ~/.xsession
+
+    ( The $ denotes your SHELL prompt. )
+
+  - a sample UserDefaults. Simply cut'n'paste it into your user's
+    UserDefaults file ( usually ~/GNUstep/Defaults/.GNUstepDefaults )
+
+----------------------------------------------------------------------------
+@end

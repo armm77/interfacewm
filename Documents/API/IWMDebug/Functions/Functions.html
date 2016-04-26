@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+    "http://www.w3.org/TR/1998/REC-html40-19980424/loose.dtd">
+<html><style type="text/css"><!--a:link {text-decoration: none; font-family: Verdana, Geneva, Helvetica, Arial, sans-serif; font-size: small}a:visited {text-decoration: none; font-family: Verdana, Geneva, Helvetica, Arial, sans-serif; font-size: small}a:active {text-decoration: none; font-family: Verdana, Geneva, Helvetica, Arial, sans-serif; font-size: small}a:hover {text-decoration: underline; font-family: Verdana, Geneva, Helvetica, Arial, sans-serif; font-size: small}h4 {text-decoration: none; font-family: Verdana,Geneva,Arial,Helvetica,sans-serif; size: tiny; font-weight: bold}--></style><head>
+    <title>Functions</title>
+	 <meta name="generator" content="HeaderDoc">
+</head><body bgcolor="#ffffff">
+<h1><font face="Geneva,Arial,Helvtica">Functions</font></h1><br>
+<hr><a name="//apple_ref/c/func/IS_CLASS(anObject)"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="IS_CLASS(anObject)">IS_CLASS(anObject)</a></h2>
+</td></tr></table><hr>Returns YES if anObject exists and is a class object, not an
+instance.
+ 
+<blockquote><pre><tt>#define IS_CLASS(anObject) ( (anObject) && object_is_class((anObject)) )
+</tt><br></pre></blockquote>
+<hr><a name="//apple_ref/c/func/IWMPoolStart"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="IWMPoolStart">IWMPoolStart</a></h2>
+</td></tr></table><hr>Creates a uniq autorelease pool.
+ 
+<blockquote><pre><tt>#define IWMPoolStart							\<br>&nbsp;	do {								\<br>&nbsp;	  NSAutoreleasePool * _iwm_pool;				\<br>&nbsp;	  _iwm_pool = [[NSAutoreleasePool alloc] init]; {		\<br>&nbsp;
+/*!
+@method IWMPoolEnd
+@abstract Destroys the autorelease pool created with IWMPoolStart()
+ */
+</tt><br></pre></blockquote>
+<p>(Last Updated 10/28/2003)
+</p></body></html>

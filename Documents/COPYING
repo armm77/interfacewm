@@ -1,0 +1,76 @@
+# $Id: COPYING,v 1.1 2003/10/28 01:02:10 copal Exp $
+
+Notices from borrowed/referenced code sources.  Many thanks to all involved
+with these projects.  Please let me know if I left a notice out!
+
+/*==========================================================================*
+   alloywm
+ *==========================================================================*/
+
+Copyright 2000 (c), Aaron Schoenhals [not quite yet]
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS", WITHOUT ANY EXPRESS
+OR IMPLIED WARRANTIES OF ANY KIND. IN NO EVENT SHALL THE AUTHOR BE
+HELD LIABLE FOR ANY DAMAGES CONNECTED WITH THE USE OF THIS PROGRAM.
+
+This program is free software. You are granted permission, free of
+charge, to copy this program, modify it, and distribute/publish/sell
+copies of it, but this license may not be modified or removed from the
+copyright notice. You may also use parts of this program's code in
+your own software, if you agree to distribute it under this license.
+
+/*==========================================================================*
+   windowmaker
+ *==========================================================================*/
+
+/*
+ *  Window Maker window manager
+ * 
+ *  Copyright (c) 1997-2002 Alfredo K. Kojima
+ * 
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, 
+ *  USA.
+ */
+
+/*==========================================================================*
+   fvm-ewmh
+ *==========================================================================*/
+
+/*
+ * Copyright 2001, Olivier Chapuis. No guarantees or warantees or anything
+ * are provided or implied in any way whatsoever. Use this program at your
+ * own risk. Permission to use this program for any purpose is given,
+ * as long as the copyright is kept intact. */
+
+/*==========================================================================*
+   blackbox/fluxbox
+ *==========================================================================*/
+
+// Screen.hh for Fluxbox Window Manager
+// Copyright (c) 2001 - 2002 Henrik Kinnunen (fluxgen@linuxmail.org)
+// 
+// Screen.hh for Blackbox - an X11 Window manager
+// Copyright (c) 1997 - 2000 Brad Hughes (bhughes@tcac.net)
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+

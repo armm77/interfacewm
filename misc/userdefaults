@@ -1,0 +1,10 @@
+    InterfaceWM = {
+	Button1 = "xterm -ls -sb";
+	Button3 = "aterm -fg white -bg black -fn lucidasanstypewriter-12";
+	BackgroundColor = black;
+	BorderColor = black;
+	BorderColor2 = white;
+	ForegroundColor = yellow;
+	Font = "lucidasanstypewriter-12";
+        ThemeName = Default.iwmtheme;
+    };

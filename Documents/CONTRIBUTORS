@@ -1,0 +1,28 @@
+
+#
+# $Id: CONTRIBUTORS,v 1.4 2005/07/26 04:14:08 copal Exp $
+#
+# Ian Mondragon - < the.copal atgmaildotcom >
+#
+# List of contributors to InterfaceWM.
+#
+
+Direct:
+
+- Eric Sammer
+- Chris B. Vetter
+- Gregory Casamento
+- Tim Harrison
+- Tim Bissel (logo!)
+- Alex Perez
+- Yen-Ju Chen
+
+Indirect (see the COPYING file):
+
+- Aaron Shoenhals (alloywm)
+- Decklin Foster (aewm)
+- Alfredo K. Kojima & the entire WindowMaker team (WindowMaker)
+- Olivier Chapuis (fvm-ewmh)
+- Brad Hughes (blackbox)
+- Henrik Kinnunen (fluxbox)
+

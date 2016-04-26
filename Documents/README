@@ -1,0 +1,39 @@
+
+README
+******
+
+  This is version 0.2.4 of Interface WM (IWM)
+
+----------------------------------------------------------------------------
+
+
+Overview
+========
+
+  The Interface window manager was designed with the following goals in
+  mind:
+
+    1. Written in Objective-C, using the GNUstep (http://www.gnustep.org)
+       libraries.
+
+    2. Provide strictly minimal functionality, with all additional features
+       available via bundles (called IWMComponents).
+
+    3. Utilize the GNUstep defaults database for user settings, such as
+       mouse button configuration, key bindings, and initial color settings.
+
+    4. Be optimized for use in a strictly GNUstep environment.
+
+
+Status
+======
+
+  - the code is currently very broken and full of mess
+  - IWMClientDescriptor (which is currently non-functional) will be changing
+    in order to conform to EWMH
+  - don't count on this code.  it'll start, but you won't be able to pull up
+    a client
+
+
+----------------------------------------------------------------------------
+@end

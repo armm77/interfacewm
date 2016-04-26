@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# Simple wrapper for launching interfacewm
+#
+# This file is part of Interface WM.
+#
+##########################################################################
+
+#
+# Make sure GNUstep is sourced in. If we are started from .xinitrc this is
+# already done, so we only have to worry about that when called 'by hand'
+#
+
+if [ X`echo $GNUSTEP_MAKEFILES`X = XX ];
+then
+  echo "You need to run the GNUstep configuration script first."
+  exit 1
+fi
+
+#
+# Fire up IWM
+#
+
+opentool interfacewm $*
+
+exit 0
+
+#
+# End of File.

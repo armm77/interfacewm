@@ -1,0 +1,20 @@
+{
+  PrimaryFont = "lucidasanstypewriter-16";
+  SecondaryFont = "lucidasanstypewriter-12";
+  TertiaryFont = "lucidasanstypewriter-10";
+  DisplayFont = "lucidasanstypewriter-16";
+  FocusedTitlebarColor = "#20302a";
+  UnfocusedTitlebarColor = "#707a80";
+  FocusedTitlebarImage = FocusedTitlebar.xpm;
+  UnfocusedTitlebarImage = UnfocusedTitlebar.xpm;
+  ResizebarImage = Resizebar.xpm;
+  IconImage = Icon.xpm;
+  IconTitleColor = "#ffffff";
+  IconTitleBack = "#a1a69c";
+  BackgroundImage = Background.xpm;
+  CloseButtonImage = CloseButton.xpm;
+  MinimizeButtonImage = MinimizeButton.xpm;
+  EmptyBackgroundColor = "#d0d0d0";
+  Border1Color = "#ffffff";
+  Border2Color = "#ffffff";
+}

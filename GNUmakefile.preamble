@@ -1,0 +1,54 @@
+
+#
+#  $Id: GNUmakefile.preamble,v 1.11 2004/06/02 01:30:24 copal Exp $
+#
+#  This file is part of Interface WM.
+#
+#  Copyright (C) 2002, Ian Mondragon
+#
+#  This library is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU Lesser General Public
+#  License as published by the Free Software Foundation; either
+#  version 2.1 of the License, or (at your option) any later version.
+#  
+#  This library is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+#  Lesser General Public License for more details.
+#  
+#  You should have received a copy of the GNU Lesser General Public
+#  License along with this library; if not, write to the Free Software
+#  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+
+############################################################################
+
+# Version number of this release
+MAJOR_VERSION		= 0
+MINOR_VERSION		= 2
+SUBMINOR_VERSION	= 7
+IWMVERSION		= $(MAJOR_VERSION).$(MINOR_VERSION).$(SUBMINOR_VERSION)
+
+# Additional flags to pass to the make utility
+MAKEFLAGS += -s
+MAKEFLAGS += warn=yes
+MAKEFLAGS += diagnose=yes
+MAKEFLAGS += messages=yes
+MAKEFLAGS += shared=yes 
+#MAKEFLAGS += debug=no
+#MAKEFLAGS += strip=yes
+
+# Additional flags to pass to the preprocessor
+ADDITIONAL_CPPFLAGS	+= -Wall
+
+# Additional flags to pass to the Objective-C compiler
+ADDITIONAL_OBJCFLAGS	+= -pipe -O2 -I. -fno-inline -DVERSION=$(IWMVERSION)
+
+# Additional LDFLAGS to pass to the linker
+ADDITIONAL_LDFLAGS	+= -s
+
+# Additional library directories the linker should search
+ADDITIONAL_LIB_DIRS	+= -LIWMExtensions/$(GNUSTEP_OBJ_DIR)
+ADDITIONAL_LIB_DIRS	+= -LIWMGraphics/$(GNUSTEP_OBJ_DIR)
+ADDITIONAL_LIB_DIRS	+= -LIWMComponent/$(GNUSTEP_OBJ_DIR)
+

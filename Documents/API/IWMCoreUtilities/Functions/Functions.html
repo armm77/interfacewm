@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+    "http://www.w3.org/TR/1998/REC-html40-19980424/loose.dtd">
+<html><style type="text/css"><!--a:link {text-decoration: none; font-family: Verdana, Geneva, Helvetica, Arial, sans-serif; font-size: small}a:visited {text-decoration: none; font-family: Verdana, Geneva, Helvetica, Arial, sans-serif; font-size: small}a:active {text-decoration: none; font-family: Verdana, Geneva, Helvetica, Arial, sans-serif; font-size: small}a:hover {text-decoration: underline; font-family: Verdana, Geneva, Helvetica, Arial, sans-serif; font-size: small}h4 {text-decoration: none; font-family: Verdana,Geneva,Arial,Helvetica,sans-serif; size: tiny; font-weight: bold}--></style><head>
+    <title>Functions</title>
+	 <meta name="generator" content="HeaderDoc">
+</head><body bgcolor="#ffffff">
+<h1><font face="Geneva,Arial,Helvtica">Functions</font></h1><br>
+<hr><a name="//apple_ref/c/func/iwm_atom()"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="iwm_atom()">iwm_atom()</a></h2>
+</td></tr></table><hr>Utility function to create an atom
+
+<blockquote><pre><tt>Atom iwm_atom (
+&nbsp;&nbsp;&nbsp;&nbsp;const char *name
+);</tt><br>
+</pre></blockquote>
+<h5><font face="Lucida Grande,Helvetica,Arial">Parameter Descriptions</font></h5>
+<blockquote>
+<dl>
+<dt><tt><em>name</em></tt></dt><dd>Name of the atom</dd>
+</dl>
+</blockquote>
+<hr><a name="//apple_ref/c/func/iwm_default_value()"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="iwm_default_value()">iwm_default_value()</a></h2>
+</td></tr></table><hr>Utility function for obtaining a value from the IWM defaults
+
+<blockquote><pre><tt>id iwm_default_value (
+&nbsp;&nbsp;&nbsp;&nbsp;NSString *key
+);</tt><br>
+</pre></blockquote>
+<h5><font face="Lucida Grande,Helvetica,Arial">Parameter Descriptions</font></h5>
+<blockquote>
+<dl>
+<dt><tt><em>key</em></tt></dt><dd>The desired key value</dd>
+</dl>
+</blockquote>
+<hr><a name="//apple_ref/c/func/iwm_mouse_position()"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="iwm_mouse_position()">iwm_mouse_position()</a></h2>
+</td></tr></table><hr>Returns an XPoint structure containing the current mouse 
+coordinates
+
+<blockquote><pre><tt>XPoint iwm_mouse_position (
+&nbsp;&nbsp;&nbsp;&nbsp;IWMWindow *target
+);</tt><br>
+</pre></blockquote>
+<h5><font face="Lucida Grande,Helvetica,Arial">Parameter Descriptions</font></h5>
+<blockquote>
+<dl>
+<dt><tt><em>windowManager</em></tt></dt><dd>Pointer to the IWMWindowManager object</dd>
+<dt><tt><em>target</em></tt></dt><dd>Optional parameter for obtaining coordinates relative to a
+particular IWMWindow</dd>
+</dl>
+</blockquote>
+<hr><a name="//apple_ref/c/func/iwm_populate_env_display()"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="iwm_populate_env_display()">iwm_populate_env_display()</a></h2>
+</td></tr></table><hr>Populates the $DISPLAY environment variable
+ 
+<blockquote><pre><tt>void iwm_populate_env_display (
+&nbsp;&nbsp;&nbsp;&nbsp;Display *display
+);</tt><br>
+</pre></blockquote>
+<p>(Last Updated 10/28/2003)
+</p></body></html>

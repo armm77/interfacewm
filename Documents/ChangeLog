@@ -1,0 +1,89 @@
+ 
+2003-10-03	Chris (cbv@knuddel.org)
+
+	* Fixed SEGFAULT on Linux upon startup
+
+
+2003-09-24	Chris (cbv@knuddel.org)
+
+	* Added option parser
+	* Use option parser in IWMController
+	* Fixed ID for IWMDebug *cough*
+	* Fixed screen detection in IWMWindowManager
+	* Added some shape settings and a -destroy
+	* Modified opening the display, closing the display now sets focus
+	  back on the root window
+	* Have IWMScreen check whether the theme is already set, instead of
+	  looking at screenNumber
+
+
+2003-09-07	Chris (cbv@knuddel.org)
+
+	* Have libraries install their headers in .../Headers/InterfaceWM/
+	* New debug level "verbose", that is "all" without "trace"
+	* Started rewriting the whole event handling, though #ifdef'd out
+	  because the whole event handling requires quite a few changes...
+
+
+2003-09-06	Chris (cbv@knuddel.org)
+
+	* Fixed -handleUnmapEvent: so that windows already map'd during
+	  startup are remap'd and drawn
+	* Added dead children zap to iwm_display_open()
+	* Fixed and cleaned up iwm_populate_env_display()
+	* Rewrote the main event-handler for a saner/saver event handling
+	* Added a sample UserDefaults in misc/
+
+
+2003-08-31	Chris (cbv@knuddel.org)
+	* Cleaned up IWMDebug
+	  instead of several functions, use IWMLog(level, format, args)
+	  Note: All functions are still available as macros.
+		Unfortunately this means that you will need to use 'nil' as
+		argument(s) even if no arguments are dumped, eg.
+		  IWMNote(@"No event.", nil);
+	* fixed problems regarding the clean-up
+	* fixed error in IWMWindowManager+Event calling -cacheEventTime:
+	* Cleaned up GNUmakefile.preamble
+	* Created GNUmakefile.local for X11 config, as this may vary
+	* Wrote README.install
+	* Added misc/ containing
+	  - a sample script correctly calling IWM via 'opentool interfacewm'
+	  - a sample xinitrc using the sample script
+	* Fixed call to -directoryExistsAtPath: in IWMTheme that threw an
+	  exception, although the method exists... hmmmm
+	* Renamed README to README.old and rewrote README
+
+
+2003-08-18      Ian
+        * remove obsolete IWMAtom files
+
+
+2003-06-04	Chris (cbv@knuddel.org)
+	* use gcc's __PRETTY_FUNCTION__ in IWMTrace() and let gcc worry
+	  about how the selector is actually built -- but even gcc
+	  sometimes screws up, if a selector is, eg. --foo:b_ar:
+	  you get [class foo:b:ar:] (OTOH you shouldn't use -a_b: anyway)
+	* a couple of fixes of NULL -> 0
+	* commented gcc3.3+ specific options in GNUmakefile.preamble,
+	  compiles smoothly with gcc32
+
+
+2003-05-04	Chris (cbv@knuddel.org)
+	* Fix a "bug" in IWMTrace() that would print "[class foobar:_]"
+	  instead of "[class foobar::]" if the method is -foobar::
+
+
+2003-04-30	Chris (cbv@knuddel.org)
+	* Quick workaround hack for putenv()
+	* Hacked IWMTRACE to work on functions as well
+
+
+2003-04-22	Chris (cbv@knuddel.org)
+	* Modified GNUMakefile.preamble to assure clean compiling
+	* Added IWMDebug.[h,m] for runtime "debugging"
+	* Modified main() to allow --GNU-Debug=...
+	* Added some IWMTRACE
+	* Changed some debug fprintf/NSLog to IWMDebug()
+	* Expanded X11 error handler to use IWMWarn() and print more info
+	* Fixed minimize/maximize core dump

@@ -1,0 +1,337 @@
+#!/bin/sh
+#
+# A sample complex xinitrc
+#
+# This file is part of Interface WM.
+#
+##########################################################################
+
+PATH="$PATH:/usr/X11R6/bin"
+
+# If you login from xdm, uncomment this to make error messages appear
+# in the console window.
+#
+# tail -f ~/.xsession-errors >> /dev/console &
+
+##########################################################################
+#
+# Start of Config
+#
+
+###
+#
+# X11 specific configuration
+#
+###
+
+# Full path to Window Manager that supports GNUstep
+#    eg: /usr/local/bin/iwm
+#
+WINDOW_MANAGER="/usr/local/bin/iwm"
+
+# Window Manager specific options
+#    eg: -display unix:0.
+#
+OPTIONS="-d :0.0"
+
+# Full path to an alternative Window manager
+#    eg: /usr/X11R6/bin/twm
+#
+ALTERNATIVE_WM="/usr/X11R6/bin/twm"
+
+# Alternative Window Manager specific options
+#    eg: -display unix:0.
+#
+ALTERNATIVE_OPTIONS="-display :0.0"
+
+# Use X11 (TrueType) Font Server (not needed for backart)
+#    1 for Yes -- 0 for No
+#
+USE_XFS=0
+USE_XFSTT=0
+
+# If you want an xterm, just in case something goes wrong
+#    1 for Yes -- 0 for No
+#
+FAILSAFE=0
+
+###
+#
+# GNUstep specific configuration
+#
+###
+
+# Full path to GNUstep System Root
+#    eg: /usr/GNUstep/System
+#
+GNUSTEP_SYSTEM_ROOT="/System"
+
+# Specify the backend
+#    eg: libgnustep-back
+#
+GS_BACKEND="libgnustep-art"
+
+# Set the TimeZone
+#    eg: PST8PDT
+#
+GS_TIME_ZONE="PST8PDT"
+
+# Location, GNUstep-style
+#    eg: America/Los_Angeles
+#
+GS_LOCATION="America/Los_Angeles"
+
+# Languages, in order of preference
+#    eg: (English, French, German)
+#
+GS_LANGUAGES="(English, German, French)"
+
+# If you have GWorkspace installed and want to start it automatically
+#    1 for Yes -- 0 for No
+#
+USE_GWORKSPACE=0
+
+# If you have GSDock installed and want to start it automatically
+#   1 for Yes -- 0 for No
+#
+USE_GSDOCK=0
+
+# If you have Panel installed and want to start it automatically
+#   1 for Yes -- 0 for No
+#
+USE_PANEL=0
+
+#
+# End of Config
+#
+##########################################################################
+
+##########################################################################
+#
+# Source in TrueType fonts
+#
+
+if [ $USE_XFS -eq 1 ];
+then
+  xset fp+ unix/:7100
+fi
+
+if [ $USE_XFSTT -eq 1 ];
+then
+  xset fp+ unix/:7101
+fi
+
+##########################################################################
+#
+# Make sure the Pasteboard Server isn't running already
+#
+
+gdomap -U 'GNUstepGSPasteboardServer'
+
+##########################################################################
+#
+# Check which Window Manager to use
+#
+
+WM_not_there=0
+
+if [ ! -f "$WINDOW_MANAGER" ];
+then
+  echo "\"`basename $WINDOW_MANAGER`\" does not exist."
+
+  WM_not_there=1
+
+  WINDOW_MANAGER="$ALTERNATIVE_WM"
+  OPTIONS="$ALTERNATIV_OPTIONS"
+
+  if [ -f "$WINDOW_MANAGER" ];
+  then
+    echo "Using \"`basename $WINDOW_MANAGER`\" instead."
+  else
+    echo "\"`basename $WINDOW_MANAGER`\" does not exist either."
+    exit 1
+  fi
+fi
+
+export WINDOW_MANAGER
+
+##########################################################################
+#
+# Let legacy X11 applications make 'ommmmm'
+#
+
+if [ -f ~/.Xdefaults ];
+then
+  xrdb -merge ~/.Xdefaults
+fi
+
+xsetroot -def
+
+##########################################################################
+#
+# Source in GNUstep settings, if they exist
+#
+
+GS_not_there=1
+
+if [ -f $GNUSTEP_SYSTEM_ROOT/Makefiles/GNUstep.sh ];
+then
+  . $GNUSTEP_SYSTEM_ROOT/Makefiles/GNUstep.sh
+
+  GS_not_there=0
+else
+  echo "GNUstep not found."
+fi
+
+##########################################################################
+#
+# Start Window Manager
+#
+
+$WINDOW_MANAGER $OPTIONS & wmpid=$!
+
+##########################################################################
+#
+# If Window Manager exists, try to launch GNUstep tools
+#
+
+if [ "$WM_not_there" -eq 0 ];
+then
+
+  #
+  # Additional GNUstep settings, if GNUstep is installed
+  #
+
+  if [ "$GS_not_there" -eq 0 ];
+  then
+
+    #
+    # TimeZone
+    #
+
+    if [ "$GNUSTEP_TZ" = "" ];
+    then
+      export GNUSTEP_TZ="$GS_TIME_ZONE"
+    fi
+
+    #
+    # Set Backend defaults
+    #
+
+    defaults write NSGlobalDomain GSBackend			"$GS_BACKEND"
+
+    defaults write NSGlobalDomain GSBrowserCellFontify		YES
+    defaults write NSGlobalDomain GSSavePanelShowProgress	YES
+    defaults write NSGlobalDomain GSBorderedBorderlessWindows	YES
+    defaults write NSGlobalDomain GSFontAntiAlias		YES
+    defaults write NSGlobalDomain GraphicCompositing		YES
+
+    #
+    # Set GUI defaults
+    #
+
+    defaults write NSGlobalDomain "Local Time Zone"		"$GS_LOCATION"
+    defaults write NSGlobalDomain NSLanguages			"$GS_LANGUAGES"
+
+    defaults write NSGlobalDomain NSInterfaceStyleDefault	NSNextStepInterfaceStyle
+    defaults write NSGlobalDomain NSMeasurementUnit		Centimeters
+    defaults write NSGlobalDomain NSMenuInterfaceStyle		NSNextStepInterfaceStyle
+
+    #
+    # Fonts go here
+    #   We (that is, I ;-) don't do anything here, as font configuration is
+    #   a matter of
+    #     a) personal taste (or lack thereof) and
+    #     b) which fonts are available on your system
+    #   So, bottom line is, you'll have to do that yourself, if you want to.
+    #   Don't worry, if these are not explicitly set, GNUstep will use default
+    #   settings which usually are 'good enough'...
+    #
+
+    #defaults write NSGlobalDomain NSBoldFont			"Helvetica-Bold"
+    #defaults write NSGlobalDomain NSControlContentFont		"Helvetica"
+    #defaults write NSGlobalDomain NSLabelFont			"Helvetica"
+    #defaults write NSGlobalDomain NSMenuFont			"Helvetica"
+    #defaults write NSGlobalDomain NSMessageFont		"Helvetica"
+    #defaults write NSGlobalDomain NSPaletteFont		"Helvetica"
+    #defaults write NSGlobalDomain NSTitleBarFont		"Helvetica"
+    #defaults write NSGlobalDomain NSToolTipsFont		"Helvetica"
+    #defaults write NSGlobalDomain NSUserFixedPitchFont		"Helvetica"
+    #defaults write NSGlobalDomain NSUserFont			"Helvetica"
+
+    #defaults write NSGlobalDomain NSControlContentFontSize	"12"
+    #defaults write NSGlobalDomain NSLabelFontSize		"12"
+    #defaults write NSGlobalDomain NSMenuFontSize		"12"
+    #defaults write NSGlobalDomain NSMessageFontSize		"12"
+    #defaults write NSGlobalDomain NSPaletteFontSize		"12"
+    #defaults write NSGlobalDomain NSTitleBarFontSize		"12"
+    #defaults write NSGlobalDomain NSToolTipsFontSize		"12"
+    #defaults write NSGlobalDomain NSUserFixedPitchFontSize	"12"
+    #defaults write NSGlobalDomain NSUserFontSize		"12"
+    #defaults write NSGlobalDomain NSFontSize			"12"
+
+    #defaults write NSGlobalDomain GSFontMask			"*-iso8859-1"
+
+    #
+    # Start PasteBoard Server
+    #
+
+    if [ -x `which gpbs` ];
+    then
+      opentool gpbs
+    fi
+
+    #
+    # Fire up GWorkspace
+    #
+
+    if [ "$USE_GWORKSPACE" -eq 1 ];
+    then
+      openapp GWorkspace
+    fi
+
+    #
+    # Fire up GSDock
+    #
+
+    if [ "$USE_GSDOCK" -eq 1 ];
+    then
+      openapp GSDock
+    fi
+
+    #
+    # Fire up Panel
+    #
+
+    if [ "$USE_PANEL" -eq 1 ];
+    then
+      openapp Panel
+    fi
+  fi
+else
+  GS_not_there=1
+fi
+
+if [ "$GS_not_there" -eq 1 ];
+then
+  echo "GNUstep not used."
+fi
+
+##########################################################################
+#
+# Let's rock
+#
+
+if [ "$FAILSAFE" -eq 1 ];
+then
+  xterm -ls -sb &
+fi
+
+wait $wmpid
+
+killall gpbs
+
+exit 0
+
+#
+# End of File.

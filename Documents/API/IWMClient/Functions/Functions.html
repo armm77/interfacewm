@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+    "http://www.w3.org/TR/1998/REC-html40-19980424/loose.dtd">
+<html><style type="text/css"><!--a:link {text-decoration: none; font-family: Verdana, Geneva, Helvetica, Arial, sans-serif; font-size: small}a:visited {text-decoration: none; font-family: Verdana, Geneva, Helvetica, Arial, sans-serif; font-size: small}a:active {text-decoration: none; font-family: Verdana, Geneva, Helvetica, Arial, sans-serif; font-size: small}a:hover {text-decoration: underline; font-family: Verdana, Geneva, Helvetica, Arial, sans-serif; font-size: small}h4 {text-decoration: none; font-family: Verdana,Geneva,Arial,Helvetica,sans-serif; size: tiny; font-weight: bold}--></style><head>
+    <title>Functions</title>
+	 <meta name="generator" content="HeaderDoc">
+</head><body bgcolor="#ffffff">
+<h1><font face="Geneva,Arial,Helvtica">Functions</font></h1><br>
+<hr><a name="//apple_ref/c/func/drawOutline"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="drawOutline">drawOutline</a></h2>
+</td></tr></table><hr><blockquote><pre><tt>- (void)drawOutline; (void)</tt><br>
+</pre></blockquote>
+<h5><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5><p>Draws the outline of a client during resizing/movement
+ </p>
+<hr><a name="//apple_ref/c/func/initWithWindow:onScreen:"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="initWithWindow:onScreen:">initWithWindow:onScreen:</a></h2>
+</td></tr></table><hr><blockquote><pre><tt>- initWithWindow: (
+&nbsp;&nbsp;&nbsp;&nbsp;Window
+)aWindow onScreen:(int)aScreenNumber;</tt><br>
+</pre></blockquote>
+<h5><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5><p>Designated initializer.
+</p>
+<h5><font face="Lucida Grande,Helvetica,Arial">Parameter Descriptions</font></h5>
+<blockquote>
+<dl>
+<dt><tt><em>aWindow</em></tt></dt><dd>The application X window</dd>
+<dt><tt><em>aScreen</em></tt></dt><dd>The screen number</dd>
+</dl>
+</blockquote>
+<hr><a name="//apple_ref/c/func/initializeDecorations"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="initializeDecorations">initializeDecorations</a></h2>
+</td></tr></table><hr><blockquote><pre><tt>- initializeDecorations; (void)</tt><br>
+</pre></blockquote>
+<h5><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5><p>Initializes the client's decor (titlebar, resizebar)
+ </p>
+<hr><a name="//apple_ref/c/func/initializeDimentions"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="initializeDimentions">initializeDimentions</a></h2>
+</td></tr></table><hr><blockquote><pre><tt>- initializeDimentions; (void)</tt><br>
+</pre></blockquote>
+<h5><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5><p>Initializes the client's size and origin
+ </p>
+<hr><a name="//apple_ref/c/func/initializeParentWindow"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="initializeParentWindow">initializeParentWindow</a></h2>
+</td></tr></table><hr><blockquote><pre><tt>- initializeParentWindow; (void)</tt><br>
+</pre></blockquote>
+<h5><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5><p>Initializes the client's parent window, which contains
+the application window, titlebar and resizebar
+ </p>
+<hr><a name="//apple_ref/c/func/move"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="move">move</a></h2>
+</td></tr></table><hr><blockquote><pre><tt>- (void)move; (void)</tt><br>
+</pre></blockquote>
+<h5><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5><p>Moves the client
+ </p>
+<hr><a name="//apple_ref/c/func/moveWithMouseUntilButtonRelease"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="moveWithMouseUntilButtonRelease">moveWithMouseUntilButtonRelease</a></h2>
+</td></tr></table><hr><blockquote><pre><tt>- (void)moveWithMouseUntilButtonRelease; (void)</tt><br>
+</pre></blockquote>
+<h5><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5><p>Continues client movement until the mouse button is released
+ </p>
+<hr><a name="//apple_ref/c/func/resize:"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="resize:">resize:</a></h2>
+</td></tr></table><hr><blockquote><pre><tt>- (void)resize: (
+&nbsp;&nbsp;&nbsp;&nbsp;BOOL
+)resizeWidth;</tt><br>
+</pre></blockquote>
+<h5><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5><p>Resizes a client.  If <i>resizeWidth</i> is <b>YES</b>, then
+the resizing will affect both width and height, otherwise, only height.
+</p>
+<h5><font face="Lucida Grande,Helvetica,Arial">Parameter Descriptions</font></h5>
+<blockquote>
+<dl>
+<dt><tt><em>resizeWidth</em></tt></dt><dd></dd>
+</dl>
+</blockquote>
+<hr><a name="//apple_ref/c/func/resizeWithMouseUntilButtonRelease:"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="resizeWithMouseUntilButtonRelease:">resizeWithMouseUntilButtonRelease:</a></h2>
+</td></tr></table><hr><blockquote><pre><tt>- (void)resizeWithMouseUntilButtonRelease: (
+&nbsp;&nbsp;&nbsp;&nbsp;BOOL
+)resizeWidth;</tt><br>
+</pre></blockquote>
+<h5><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5><p>Continues client resizing until the mouse button is released.
+</p>
+<h5><font face="Lucida Grande,Helvetica,Arial">Parameter Descriptions</font></h5>
+<blockquote>
+<dl>
+<dt><tt><em>resizeWidth</em></tt></dt><dd></dd>
+</dl>
+</blockquote>
+<hr><a name="//apple_ref/c/func/windowForXWindow:"></a>
+<table border="0"  cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5"><h2><a name="windowForXWindow:">windowForXWindow:</a></h2>
+</td></tr></table><hr><blockquote><pre><tt>- (IWMWindow *)windowForXWindow: (
+&nbsp;&nbsp;&nbsp;&nbsp;Window
+)aWindow;</tt><br>
+</pre></blockquote>
+<h5><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5><p>Returns the IWMWindow object wrapping the provided X window if
+it is present in the client's window hierarchy.
+</p>
+<h5><font face="Lucida Grande,Helvetica,Arial">Parameter Descriptions</font></h5>
+<blockquote>
+<dl>
+<dt><tt><em>aWindow</em></tt></dt><dd>An X Window</dd>
+</dl>
+</blockquote>
+<p>(Last Updated 10/28/2003)
+</p></body></html>
